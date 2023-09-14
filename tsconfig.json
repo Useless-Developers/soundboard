@@ -1,6 +1,10 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "@useless-developers/tsconfig",
   "compilerOptions": {
-    "strict": true
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   }
 }
