@@ -6,6 +6,7 @@ const config: ExpoConfig = {
       backgroundColor: '#ffffff',
       foregroundImage: './assets/adaptive-icon.png',
     },
+    package: 'com.uselessdevelopers.chachasoundboard'
   },
   assetBundlePatterns: ['**/*'],
   backgroundColor: '#282a36',
