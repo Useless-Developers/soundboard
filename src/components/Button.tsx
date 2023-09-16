@@ -16,8 +16,8 @@ type ButtonProps = SoundClip
  */
 export const Button = ({ file, label }: ButtonProps) => {
   const playSound = async () => {
-    const { sound } = await Audio.Sound.createAsync(file)
-    await sound?.playAsync()
+    const { sound } = await Audio.Sound.createAsync(file, { shouldPlay: true })
+    sound?.unloadAsync()
   }
 
   return (
