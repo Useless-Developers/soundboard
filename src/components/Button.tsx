@@ -2,6 +2,8 @@ import { Button as RNButton } from 'react-native'
 import { Audio } from 'expo-av'
 
 import type { SoundClip } from '@/constants/sounds'
+import { useEffect, useState } from 'react'
+import { Sound } from 'expo-av/build/Audio'
 
 type ButtonProps = SoundClip
 
@@ -15,10 +17,22 @@ type ButtonProps = SoundClip
  * @param props.label - button label
  */
 export const Button = ({ file, label }: ButtonProps) => {
+  const [sound, setSound] = useState<null | Sound>(null);
+
   const playSound = async () => {
+    console.log(file)
     const { sound } = await Audio.Sound.createAsync(file, { shouldPlay: true })
-    sound?.unloadAsync()
+    setSound(sound)
   }
+
+  useEffect(() => {
+    return sound
+      ? () => {
+        console.log('Unloading Sound');
+        sound?.unloadAsync();
+      }
+      : undefined;
+  }, [sound]);
 
   return (
     <RNButton
