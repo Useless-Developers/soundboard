@@ -13,6 +13,11 @@ const config: ExpoConfig = {
   experiments: {
     tsconfigPaths: true,
   },
+  extra: {
+    eas: {
+      projectId: "943e7ad3-ca3b-4667-a5fc-131914078ab1"
+    }
+  },
   icon: './assets/icon.png',
   ios: {
     supportsTablet: true,
