@@ -10,9 +10,9 @@ const config: ExpoConfig = {
   },
   assetBundlePatterns: ['**/*'],
   backgroundColor: '#282a36',
-  // experiments: {
-  //   tsconfigPaths: true,
-  // },
+  experiments: {
+    tsconfigPaths: true,
+  },
   icon: './assets/icon.png',
   ios: {
     supportsTablet: true,

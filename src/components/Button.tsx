@@ -20,7 +20,6 @@ export const Button = ({ file, label }: ButtonProps) => {
   const [sound, setSound] = useState<null | Sound>(null);
 
   const playSound = async () => {
-    console.log(file)
     const { sound } = await Audio.Sound.createAsync(file, { shouldPlay: true })
     setSound(sound)
   }
@@ -28,7 +27,6 @@ export const Button = ({ file, label }: ButtonProps) => {
   useEffect(() => {
     return sound
       ? () => {
-        console.log('Unloading Sound');
         sound?.unloadAsync();
       }
       : undefined;
