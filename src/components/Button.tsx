@@ -1,11 +1,15 @@
-import { Button as RNButton } from 'react-native'
-import { Audio } from 'expo-av'
-
-import type { SoundClip } from '@/constants/sounds'
 import { useEffect, useState } from 'react'
+import { Pressable } from 'react-native'
+import { Audio } from 'expo-av'
 import { Sound } from 'expo-av/build/Audio'
+import type { SoundClip } from '@/constants/sounds'
+import { tw } from '@/lib'
+
+import { Txt } from './Txt'
 
 type ButtonProps = SoundClip
+
+const BASE_STYLE = 'border-primary border-2 rounded-xl h-24 flex-1 items-center justify-center p-3'
 
 /**
  * Button Component
@@ -17,26 +21,31 @@ type ButtonProps = SoundClip
  * @param props.label - button label
  */
 export const Button = ({ file, label }: ButtonProps) => {
-  const [sound, setSound] = useState<null | Sound>(null);
+  const [audioSound, setAudioSound] = useState<null | Sound>(null)
 
   const playSound = async () => {
     const { sound } = await Audio.Sound.createAsync(file, { shouldPlay: true })
-    setSound(sound)
+    setAudioSound(sound)
   }
 
-  useEffect(() => {
-    return sound
-      ? () => {
-        sound?.unloadAsync();
-      }
-      : undefined;
-  }, [sound]);
+  useEffect(
+    () =>
+      audioSound
+        ? () => {
+          audioSound?.unloadAsync()
+        }
+        : undefined,
+    [audioSound],
+  )
 
   return (
-    <RNButton
-      // style={tw`border-fg text-fg border-fg rounded-full`}
+    <Pressable
       onPress={playSound}
-      title={label}
-    />
+      style={({ pressed }) => (pressed ? tw`${BASE_STYLE} bg-primary` : tw`${BASE_STYLE}`)}
+    >
+      {({ pressed }) => (
+        <Txt className={`text-xl ${pressed ? 'text-bg' : 'text-text'}`}>{label}</Txt>
+      )}
+    </Pressable>
   )
 }

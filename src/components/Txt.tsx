@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
 import { Text } from 'react-native'
-import tw from 'twrnc'
+import { tw } from '@/lib'
 
-type Props = PropsWithChildren<{ className: string }>
+type Props = PropsWithChildren<{ className?: string }>
 
 /**
  * Re-export Text with Tailwind

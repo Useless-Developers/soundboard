@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { View as RNView } from 'react-native'
-import tw from 'twrnc'
+import { tw } from '@/lib'
 
 type Props = PropsWithChildren<{ className: string }>
 

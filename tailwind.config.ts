@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss'
 
-import { COLORS } from '@/constants'
+import { COLORS } from './src/constants/colors'
 
 export default {
   content: ['App.tsx', 'src/**/*.tsx'],
