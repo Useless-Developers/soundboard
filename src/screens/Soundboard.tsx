@@ -17,7 +17,7 @@ export const Soundboard = () => (
     {/* Soundboard Body */}
     <FlatList
       columnWrapperStyle={tw`gap-4`}
-      contentContainerStyle={tw`gap-4 items-stretch justify-center`}
+      contentContainerStyle={tw`gap-4 items-stretch justify-center flex-1`}
       data={SOUNDS}
       keyExtractor={sound => sound.label}
       numColumns={3}
