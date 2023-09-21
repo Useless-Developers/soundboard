@@ -15,7 +15,7 @@ const config: ExpoConfig = {
   },
   extra: {
     eas: {
-      projectId: '943e7ad3-ca3b-4667-a5fc-131914078ab1',
+      projectId: '294b5fcb-f754-40f3-99af-c87497708762',
     },
   },
   icon: './assets/images/icon.png',
