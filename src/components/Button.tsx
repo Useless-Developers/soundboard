@@ -32,8 +32,8 @@ export const Button = ({ file, label }: ButtonProps) => {
     () =>
       audioSound
         ? () => {
-          audioSound?.unloadAsync()
-        }
+            audioSound?.unloadAsync()
+          }
         : undefined,
     [audioSound],
   )
