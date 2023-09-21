@@ -1,6 +1,5 @@
 {
-  "name": "soundboard",
-  "version": "1.0.0",
+  "name": "chachaa",
   "scripts": {
     "start": "expo start --dev-client",
     "clean": "rm -rf .expo ; rm -rf android ; rm -rf node_modules ; npm i",

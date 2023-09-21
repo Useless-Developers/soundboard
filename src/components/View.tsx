@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
-import { View as RNView } from 'react-native'
+import { View as RNView, ViewProps } from 'react-native'
 import { tw } from '@/lib'
 
-type Props = PropsWithChildren<{ className: string }>
+type Props = PropsWithChildren<{ className: string }> & ViewProps
 
 /**
  * Re-export View with Tailwind
